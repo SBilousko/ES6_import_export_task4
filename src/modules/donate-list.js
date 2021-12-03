@@ -18,12 +18,12 @@ export class DonateList {
     const donates = document.querySelector(".donates-container__donates");
     const donateItem = document.querySelectorAll(".donate-item");
 
-    if(donateItem) {
+    if (donateItem) {
       donateItem.forEach((item) => {
         item.remove();
-      })
+      });
     }
-    
+
     updatedDonates.forEach((donate) => {
       const donatesContainerDonates = document.querySelector(
         ".donates-container__donates"

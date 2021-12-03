@@ -1,14 +1,7 @@
-// import App from './app';
-
 export class DonateForm {
-  // app = new App();
-  // createNewDonate = app.createNewDonate();
-
   constructor(totalAmount, createNewDonate) {
     this.totalAmount = totalAmount;
     this.createNewDonate = createNewDonate;
-    // this.createNewDonate.bind(this);
-    // this.createNewDonate = createNewDonate;
   }
 
   #createElement(tagName, className = "", id = "") {
