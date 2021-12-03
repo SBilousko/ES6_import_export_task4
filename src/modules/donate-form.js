@@ -1,10 +1,10 @@
-import App from './app';
+// import App from './app';
 
 export class DonateForm {
-  constructor(totalAmount, createNewDonate) {
+  constructor(totalAmount) {
     this.totalAmount = totalAmount;
-    const app = new App();
-    this.createNewDonate = app.createNewDonate;
+    // const app = new App();
+    // this.createNewDonate = app.createNewDonate();
     // this.createNewDonate.bind(this);
   }
 
@@ -28,7 +28,7 @@ export class DonateForm {
     const donateForm = this.#createElement("form", "donate-form");
 
     const totalAmount = this.#createElement("h1", "", "total-amount");
-    totalAmount.textContent = "28$";
+    totalAmount.textContent = `${this.totalAmount}$`;
 
     const donateFormInputLabel = this.#createElement(
       "label",
@@ -65,7 +65,7 @@ export class DonateForm {
         amount: donateFormDonateInput.value,
         date: new Date(),
       }
-      this.createNewDonate(newDonate);
+      // this.createNewDonate(newDonate);
       donateFormDonateInput.value = '';
     });
   }

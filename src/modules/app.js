@@ -12,14 +12,14 @@ export default class App {
   #formBlock;
   #donateList;
   constructor() {
-    this.#formBlock = new DonateForm();
-    this.#donateList = new DonateList(mockDonates);
+    this.state = {
+      donates: [],
+      totalAmount: 0,
+    }
+    this.#formBlock = new DonateForm(this.state.totalAmount);
+    this.#donateList = new DonateList(this.state.donates);
+    
   }
-
-  state = {
-    donates: [],
-    totalAmount: 0,
-  };
 
   run() {
     const formBlockHTML = this.#formBlock.render();
@@ -28,7 +28,7 @@ export default class App {
 
   createNewDonate(newDonate) {
     this.state.donates.push(newDonate);
-    this.state.totalAmount += newDonate.amount;
+    this.state.totalAmount = this.state.totalAmount + Number(newDonate.amount);
     this.#donateList.updateDonates(this.state.donates);
     this.#formBlock.updateTotalAmount(this.state.totalAmount);
   }
