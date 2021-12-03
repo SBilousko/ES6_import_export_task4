@@ -1,11 +1,14 @@
 // import App from './app';
 
 export class DonateForm {
-  constructor(totalAmount) {
+  // app = new App();
+  // createNewDonate = app.createNewDonate();
+
+  constructor(totalAmount, createNewDonate) {
     this.totalAmount = totalAmount;
-    // const app = new App();
-    // this.createNewDonate = app.createNewDonate();
+    this.createNewDonate = createNewDonate;
     // this.createNewDonate.bind(this);
+    // this.createNewDonate = createNewDonate;
   }
 
   #createElement(tagName, className = "", id = "") {
@@ -60,13 +63,14 @@ export class DonateForm {
     );
     document.body.append(donateForm);
 
-    donateForm.addEventListener('submit', (event) => {
+    donateForm.addEventListener("submit", (event) => {
+      event.preventDefault();
       const newDonate = {
         amount: donateFormDonateInput.value,
         date: new Date(),
-      }
-      // this.createNewDonate(newDonate);
-      donateFormDonateInput.value = '';
+      };
+      this.createNewDonate(newDonate);
+      donateFormDonateInput.value = "";
     });
   }
 }

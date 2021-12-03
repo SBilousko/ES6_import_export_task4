@@ -16,7 +16,9 @@ export default class App {
       donates: [],
       totalAmount: 0,
     }
-    this.#formBlock = new DonateForm(this.state.totalAmount);
+    this.#formBlock = new DonateForm(
+      this.state.totalAmount,
+      this.createNewDonate.bind(this));
     this.#donateList = new DonateList(this.state.donates);
     
   }
